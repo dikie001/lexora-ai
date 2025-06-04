@@ -1,0 +1,14 @@
+/* Scrollbar for WebKit Browsers (Chrome, Edge, Safari) */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px; /* Small width */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #06b6d4; /* Cyan color */
+    border-radius: 10px; /* Fully rounded */
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent; /* Hide track */
+  }
+  
