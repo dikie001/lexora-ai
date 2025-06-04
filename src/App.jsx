@@ -6,14 +6,7 @@ import { Moon, Sun, Sparkles, Download, X } from "lucide-react";
 const App = () => {
   const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [showInstallButton, setShowInstallButton] = useState(false);
-  const [isDark, setIsDark] = useState(() => {
-    // Using in-memory storage instead of localStorage for Claude.ai compatibility
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
-  });
 
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", isDark);
-  }, [isDark]);
 
   useEffect(() => {
     const handler = (e) => {
@@ -47,28 +40,6 @@ const App = () => {
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-purple-200/20 to-pink-300/20 dark:from-purple-600/10 dark:to-pink-700/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </div>
 
-      {/* Theme Toggle - Fixed Position */}
-      <div className="fixed top-6 right-6 z-40">
-        <button
-          onClick={() => setIsDark(!isDark)}
-          className="group relative overflow-hidden bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl border border-slate-200/50 dark:border-slate-700/50 rounded-2xl p-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-        >
-          <div className="relative z-10">
-            {isDark ? (
-              <Sun
-                size={20}
-                className="text-amber-500 group-hover:rotate-12 transition-transform duration-300"
-              />
-            ) : (
-              <Moon
-                size={20}
-                className="text-slate-600 group-hover:-rotate-12 transition-transform duration-300"
-              />
-            )}
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-amber-400/20 to-orange-400/20 dark:from-blue-400/20 dark:to-indigo-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        </button>
-      </div>
 
       {/* Install Prompt Modal */}
       {showInstallButton && (
